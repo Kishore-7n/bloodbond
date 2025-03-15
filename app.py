@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS 
 import joblib
 
 
@@ -7,6 +8,8 @@ model = joblib.load("health_tips_model.pkl")
 
 # Initialize Flask app
 app = Flask(__name__)
+
+CORS(app) 
 
 # Define the API endpoint
 @app.route('/predict', methods=['POST'])
